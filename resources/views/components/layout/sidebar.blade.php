@@ -36,6 +36,12 @@
     </li>
     <li class="nav-header text-uppercase">{{ __('firefly.financial_control') }}</li>
     <li class="nav-item">
+        <a href="{{ route('record.index') }}" class="nav-link {{ menu_item_active_partial('record.') }}">
+            <em class="nav-icon bi bi-journal-check"></em>
+            <p>Record</p>
+        </a>
+    </li>
+    <li class="nav-item">
         <a href="{{ route('budgets.index') }}" class="nav-link {{ menu_item_active_partial('budgets.') }}">
             <em class="nav-icon bi bi-pie-chart"></em>
             <p>

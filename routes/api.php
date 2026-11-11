@@ -876,3 +876,16 @@ Route::group(
         );
     }
 );
+
+
+// Record for the phone app (see RECORD.md).
+Route::group(
+    ['namespace' => 'FireflyIII\Http\Controllers', 'prefix' => 'v1/record', 'as' => 'api.v1.record.'],
+    static function (): void {
+        Route::get('app', ['uses' => 'RecordController@app', 'as' => 'app']);
+        Route::get('data', ['uses' => 'RecordController@data', 'as' => 'data']);
+        Route::post('state', ['uses' => 'RecordController@saveState', 'as' => 'state']);
+        Route::post('plan', ['uses' => 'RecordController@savePlan', 'as' => 'plan']);
+        Route::post('tx', ['uses' => 'RecordController@saveTx', 'as' => 'tx']);
+    }
+);

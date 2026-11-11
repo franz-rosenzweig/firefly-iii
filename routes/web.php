@@ -1474,3 +1474,16 @@ Route::group(
         //        Route::post('set-order/{bill}', ['uses' => 'Bill\IndexController@setOrder', 'as' => 'set-order']);
     }
 );
+
+
+// Record (see RECORD.md).
+Route::group(
+    ['middleware' => 'user-full-auth', 'namespace' => 'FireflyIII\Http\Controllers', 'prefix' => 'record', 'as' => 'record.'],
+    static function (): void {
+        Route::get('', ['uses' => 'RecordController@index', 'as' => 'index']);
+        Route::get('data', ['uses' => 'RecordController@data', 'as' => 'data']);
+        Route::post('state', ['uses' => 'RecordController@saveState', 'as' => 'state']);
+        Route::post('plan', ['uses' => 'RecordController@savePlan', 'as' => 'plan']);
+        Route::post('tx', ['uses' => 'RecordController@saveTx', 'as' => 'tx']);
+    }
+);
